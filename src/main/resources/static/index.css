@@ -93,10 +93,10 @@
   align-items: flex-start;
   flex-shrink: 0;
 }
-.frame-group1563 {
+.book-list-row {
   top: 137px;
-  left: -3px;
-  width: 1244.298828125px;
+  left: -5;
+  width: 1244;
   height: 263px;
   display: flex;
   position: absolute;
@@ -165,7 +165,7 @@
   flex-shrink: 0;
   background-color: rgba(255, 255, 255, 1);
 }
-.frame-asset42x1 {
+.book-cover1 {
   top: -1255px;
   left: -932.19921875px;
   width: 1089px;
@@ -1021,4 +1021,10 @@
   width: 203px;
   height: 50px;
   position: absolute;
+}
+
+
+.header-menu {
+  text-decoration-line: none;
+  color: black;
 }
