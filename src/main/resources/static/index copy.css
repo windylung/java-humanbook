@@ -116,18 +116,6 @@
   align-items: flex-start;
   flex-shrink: 1;
 }
-
-.book-list-row-2 {
-  top: 300px;
-  left: -5;
-  width: 1244;
-  height: 263px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
-
 .frame-book {
   top: 0px;
   left: 852.19921875px;
@@ -162,14 +150,14 @@
   text-decoration: none;
 }
 .frame-text010 {
-  top: 180px;
+  top: 153px;
   left: 230.80078125px;
   color: rgba(0, 0, 0, 1);
   width: 145px;
   height: auto;
   position: absolute;
-  font-size: 16px;
-  font-style: Bold;
+  font-size: 12px;
+  font-style: Light;
   text-align: left;
   font-family: Apple SD Gothic Neo;
   font-weight: 300;
@@ -860,18 +848,6 @@
   align-items: flex-start;
   flex-shrink: 1;
 }
-
-.frame-book6 {
-  top: 0px;
-  left: 852.19921875px;
-  width: 390px;
-  height: 263px;
-  display: flex;
-  position: absolute;
-  align-items: flex-start;
-  flex-shrink: 1;
-}
-
 .frame-rectangle155 {
   top: 31px;
   left: 0px;

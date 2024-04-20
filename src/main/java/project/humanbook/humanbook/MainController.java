@@ -6,11 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
-    @GetMapping("/book-detail")
-    public String getBookDetail(Model model) {
-        model.addAttribute("data", "책 id");
-        return "bookDetail";
-    }
 
     @GetMapping("/write")
     public String getWrite(Model model) {

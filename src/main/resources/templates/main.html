@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <title>exported project</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8" />
+    <meta property="twitter:card" content="summary_large_image" />
+    <link rel="stylesheet" href="style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/animate.css@4.1.1/animate.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      data-tag="font"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
+    />
+  </head>
+  <body>
+    <link rel="stylesheet" href="./style.css" />
+    <div>
+      <link href="./index.css" rel="stylesheet" />
+      <div class="frame-container">
+        <div class="frame-frame">
+          <!-- 메인페이지 헤더 -->
+          <div class="frame-frame38">
+            <span class="frame-text100"
+              ><span
+                ><a class="header-menu" href="/my-page">MY PAGE</a></span
+              ></span
+            ><span class="frame-text102"
+              ><span><a class="header-menu" href="/write">WRITE</a></span></span
+            ><span class="frame-text104"
+              ><span><a class="header-menu" href="/login">LOGIN</a></span></span
+            >
+            <div class="frame-logo">
+              <img
+                alt="image3884"
+                src="public/external/image3884-wir5-200h.png"
+                class="frame-image3"
+              /><img
+                alt="image4885"
+                src="public/external/image4885-5yf4-200h.png"
+                class="frame-image4"
+              />
+            </div>
+          </div>
+          <!-- 메인페이지 상단 배너 -->
+          <div class="frame-banner">
+            <div class="frame-frameeye">
+              <img
+                alt="Ellipse1785"
+                src="public/external/ellipse1785-pbxo-300w.png"
+                class="frame-ellipse17"
+              /><img
+                alt="Ellipse1886"
+                src="public/external/ellipse1886-xzl-300w.png"
+                class="frame-ellipse18"
+              /><img
+                alt="Ellipse1987"
+                src="public/external/ellipse1987-0gc4p-200w.png"
+                class="frame-ellipse19"
+              /><img
+                alt="Ellipse2088"
+                src="public/external/ellipse2088-che5-200w.png"
+                class="frame-ellipse20"
+              />
+            </div>
+            <span class="frame-text"
+              ><span>다양한 사람</span><br /><span>다양한 인생</span><br /><span
+                >모두 사람책에</span
+              ></span
+            >
+          </div>
+          <!-- 메인페이지 사람책 리스트  -->
+
+          <div class="frame-maincontents">
+            <span class="frame-text098"><span>Human BOOK</span></span>
+            
+
+          
+
+
+            <div class="book-list-row">
+              <div th:each="book : ${books}" >
+                <div th:if= "${book.id < 3}" th:classappend="'frame-book' + (1 + ${book.id})">
+
+                
+                <a th:href="@{/book-detail/{id}(id=${book.id})}">
+                  <img
+                    alt="첵 표지"
+                    src="public/external/rectangle15813-hph.svg"
+                    class="frame-rectangle15"
+                  />
+                  <span class="frame-text006">
+                    <!-- 첫 번째 줄은 book.title에서 공백 위치를 찾아 첫 부분을 표시합니다 -->
+                    <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringBefore(book.title, ' ') : book.title}"></span>
+                    <br/>
+                    <!-- 두 번째 줄은 제목에서 첫 공백 이후의 부분을 표시합니다. 공백이 없으면 출력하지 않습니다. -->
+                    <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringAfter(book.title, ' ') : ''}"></span>
+                    
+                  </span>
+                  <span class="frame-text010">
+                    <!-- 하단 텍스트는 고정된 값으로 표시 -->
+                    <span
+                      th:text="${book.author}"
+                    ></span>
+                    <br />
+                    <!-- 두 번째 줄은 book.title에서 첫 공백 이후의 부분을 표시합니다 -->
+                    <!-- <span
+                      th:text="${#strings.substringAfter(book.author, ' ')}"
+                    ></span> -->
+                  </span>
+                  <div class="frame-frame15">
+                    <img
+                      alt="Asset42x1817"
+                      src="public/external/asset42x1817-odfq-1500h.png"
+                      class="book-cover"
+                    />
+                  </div>
+                </a>
+              </div>
+              
+            </div>
+
+            <div class="book-list-row-2">
+              <div th:each="book : ${books}" >
+                <div th:if= "${book.id >= 3 and book.id <= 5}" th:classappend="'frame-book' + (1 + ${book.id})">
+
+                
+                <a th:href="@{/book-detail/{id}(id=${book.id})}">
+                  <img
+                    alt="첵 표지"
+                    src="public/external/rectangle15813-hph.svg"
+                    class="frame-rectangle15"
+                  />
+                  <span class="frame-text006">
+                    <!-- 첫 번째 줄은 book.title에서 공백 위치를 찾아 첫 부분을 표시합니다 -->
+                    <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringBefore(book.title, ' ') : book.title}"></span>
+                    <br/>
+                    <!-- 두 번째 줄은 제목에서 첫 공백 이후의 부분을 표시합니다. 공백이 없으면 출력하지 않습니다. -->
+                    <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringAfter(book.title, ' ') : ''}"></span>
+                  </span>
+                  <span class="frame-text010">
+                    <!-- 하단 텍스트는 고정된 값으로 표시 -->
+                    <span
+                      th:text="${book.author}"
+                    ></span>
+                    <br />
+                    <!-- 두 번째 줄은 book.title에서 첫 공백 이후의 부분을 표시합니다 -->
+                    <!-- <span
+                      th:text="${#strings.substringAfter(book.author, ' ')}"
+                    ></span> -->
+                  </span>
+                  <div class="frame-frame15">
+                    <img
+                      alt="Asset42x1817"
+                      src="public/external/asset42x1817-odfq-1500h.png"
+                      class="book-cover"
+                    />
+                  </div>
+                </a>
+              </div>
+              
+            </div>
+          </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

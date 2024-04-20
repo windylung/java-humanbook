@@ -1,0 +1,129 @@
+.frame-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+
+.frame-frame {
+  width: 100%;
+  display: flex;
+  
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.frame-banner {
+  width: 100%;
+  height: 391px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(54, 116, 255, 1);
+}
+
+.frame-frameeye {
+  top: 107.93829345703125px;
+  left: 1070px;
+  width: 357.9999084472656px;
+  height: 302.06170654296875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.frame-ellipse17 {
+  top: 0px;
+  left: 0px;
+  width: 204px;
+  height: 302px;
+  position: absolute;
+}
+
+.frame-ellipse18 {
+  top: 0px;
+  left: 154.29441833496094px;
+  width: 204px;
+  height: 302px;
+  position: absolute;
+}
+
+.frame-ellipse19 {
+  top: 91.06170654296875px;
+  left: 185px;
+  width: 100px;
+  height: 147px;
+  position: absolute;
+}
+
+.frame-ellipse20 {
+  top: 91.06170654296875px;
+  left: 23px;
+  width: 100px;
+  height: 147px;
+  position: absolute;
+}
+
+.frame-maincontents {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  
+  position: relative;
+}
+.frame-book {
+  left: 0;
+  width: 392.099609375px;
+  height: 263px;
+  display: flex;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+
+.frame-rectangle15, .book-cover {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  /* height: 232px; */
+   height: auto; 
+}
+.frame-text006 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 162px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+
+
+.frame-text006, .frame-text010 {
+  text-align: center;
+  font-size: 20px;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 700;
+}
+
+.header-menu {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+  font-family: 'Inter', sans-serif;
+}
