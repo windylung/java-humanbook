@@ -1,0 +1,1024 @@
+.frame-container {
+  width: 100%;
+  display: flex;
+  overflow: auto;
+  min-height: 100vh;
+  align-items: center;
+  flex-direction: column;
+}
+.frame-frame {
+  width: 100%;
+  height: 1328px;
+  display: flex;
+  overflow: hidden;
+  position: relative;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-banner {
+  top: 115px;
+  left: 0px;
+  width: 1440px;
+  height: 391px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(54, 116, 255, 1);
+}
+.frame-frameeye {
+  top: 107.93829345703125px;
+  left: 1070px;
+  width: 357.9999084472656px;
+  height: 302.06170654296875px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-ellipse17 {
+  top: 0px;
+  left: 0px;
+  width: 204px;
+  height: 302px;
+  position: absolute;
+}
+.frame-ellipse18 {
+  top: 0px;
+  left: 154.29441833496094px;
+  width: 204px;
+  height: 302px;
+  position: absolute;
+}
+.frame-ellipse19 {
+  top: 91.06170654296875px;
+  left: 185px;
+  width: 100px;
+  height: 147px;
+  position: absolute;
+}
+.frame-ellipse20 {
+  top: 91.06170654296875px;
+  left: 23px;
+  width: 100px;
+  height: 147px;
+  position: absolute;
+}
+.frame-text {
+  top: 94px;
+  left: 290px;
+  color: rgba(255, 255, 255, 1);
+  width: 532px;
+  height: auto;
+  position: absolute;
+  font-size: 60px;
+  font-style: B;
+  text-align: left;
+  font-family: KIMM_Bold;
+  font-weight: 400;
+  line-height: 70px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-maincontents {
+  top: 570px;
+  left: 100px;
+  width: 1240px;
+  height: 1200px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+}
+.frame-group1563 {
+  top: 137px;
+  left: -3px;
+  width: 1244.298828125px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-book {
+  top: 0px;
+  left: 852.19921875px;
+  width: 392.099609375px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle15 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text006 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 162px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text010 {
+  top: 153px;
+  left: 230.80078125px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame15 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-asset42x1 {
+  top: -1255px;
+  left: -932.19921875px;
+  width: 1089px;
+  height: 1468px;
+  position: absolute;
+}
+.frame-text014 {
+  top: 12px;
+  left: 135.88462829589844px;
+  color: rgba(76, 135, 202, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 80px;
+  font-style: fill;
+  text-align: left;
+  font-family: Kelsi 1;
+  font-weight: 400;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-book1 {
+  top: 0px;
+  left: 0px;
+  width: 390px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle151 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text018 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 132px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame151 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-asset42x11 {
+  top: 0px;
+  left: -1px;
+  width: 158px;
+  height: 213px;
+  position: absolute;
+}
+.frame-text024 {
+  top: 172px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-book2 {
+  top: 0px;
+  left: 426px;
+  width: 390px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle152 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text028 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 132px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame152 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(240, 106, 86, 1);
+}
+.frame-frameeye1 {
+  top: -23.9999942779541px;
+  left: 14.724016189575195px;
+  width: 126.2760009765625px;
+  height: 257.2015075683594px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-ellipse171 {
+  top: 2.1041805744171143px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse191 {
+  top: 115.99999237060547px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse181 {
+  top: 58.99999237060547px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse201 {
+  top: 173px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-text034 {
+  top: 172px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-group1564 {
+  top: 432px;
+  left: -1px;
+  width: 1244.298828125px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-book3 {
+  top: 0px;
+  left: 852.19921875px;
+  width: 392.099609375px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle153 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text038 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 162px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text042 {
+  top: 153px;
+  left: 230.80078125px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame153 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-text044 {
+  top: -34.08527755737305px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text046 {
+  top: 2.8986310958862305px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text048 {
+  top: 39.88265609741211px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text050 {
+  top: 76.86671447753906px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text052 {
+  top: 113.85054779052734px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text054 {
+  top: 150.83468627929688px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text056 {
+  top: 187.8186798095703px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text058 {
+  top: 224.8026580810547px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text060 {
+  top: 261.7867126464844px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text062 {
+  top: 235.36953735351562px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text064 {
+  top: 208.95242309570312px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text066 {
+  top: 182.53515625px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text068 {
+  top: 156.1181182861328px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text070 {
+  top: 129.70094299316406px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text072 {
+  top: 103.28375244140625px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text074 {
+  top: 76.86671447753906px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text076 {
+  top: 50.44948959350586px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text078 {
+  top: 24.032381057739258px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text080 {
+  top: -2.384692668914795px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text082 {
+  top: -28.801918029785156px;
+  left: -0.19921875px;
+  color: rgba(133, 102, 192, 1);
+  width: 217px;
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-book4 {
+  top: 0px;
+  left: 0px;
+  width: 390px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle154 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text084 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 132px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame154 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-image2 {
+  top: 213px;
+  left: -18.999990463256836px;
+  width: 213px;
+  height: 199px;
+  position: absolute;
+}
+.frame-text088 {
+  top: 151px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-book5 {
+  top: 0px;
+  left: 426px;
+  width: 390px;
+  height: 263px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-rectangle155 {
+  top: 31px;
+  left: 0px;
+  width: 390px;
+  height: 232px;
+  position: absolute;
+}
+.frame-text092 {
+  top: 92px;
+  left: 230px;
+  color: rgba(0, 0, 0, 1);
+  width: 132px;
+  height: auto;
+  position: absolute;
+  font-size: 20px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 700;
+  line-height: 24px;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame155 {
+  top: 0px;
+  left: 38px;
+  width: 157px;
+  height: 213px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  box-shadow: 4px 6px 4px 0px rgba(0, 0, 0, 0.25) ;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(240, 106, 86, 1);
+}
+.frame-frameeye2 {
+  top: -23.9999942779541px;
+  left: 14.724016189575195px;
+  width: 126.2760009765625px;
+  height: 257.2015075683594px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-ellipse172 {
+  top: 2.1041805744171143px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse192 {
+  top: 115.99999237060547px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse182 {
+  top: 58.99999237060547px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-ellipse202 {
+  top: 173px;
+  left: 126.2760009765625px;
+  width: 84px;
+  height: 125px;
+  position: absolute;
+}
+.frame-img27071 {
+  top: 213px;
+  left: -1px;
+  width: 159px;
+  height: 212px;
+  position: absolute;
+}
+.frame-text094 {
+  top: 122px;
+  left: 228px;
+  color: rgba(0, 0, 0, 1);
+  width: 145px;
+  height: auto;
+  position: absolute;
+  font-size: 12px;
+  font-style: Light;
+  text-align: left;
+  font-family: Apple SD Gothic Neo;
+  font-weight: 300;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text098 {
+  top: 60px;
+  left: -3px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 30px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-frame38 {
+  top: 0px;
+  left: 0px;
+  width: 1440px;
+  height: 115px;
+  display: flex;
+  overflow: hidden;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 0;
+  background-color: rgba(255, 255, 255, 1);
+}
+.frame-text100 {
+  top: 44px;
+  left: 40px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 25px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text102 {
+  top: 44px;
+  left: 1205px;
+  color: rgba(0, 0, 0, 1);
+  width: 71px;
+  height: auto;
+  position: absolute;
+  font-size: 25px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-text104 {
+  top: 44px;
+  left: 1326px;
+  color: rgba(0, 0, 0, 1);
+  height: auto;
+  position: absolute;
+  font-size: 25px;
+  font-style: Bold;
+  text-align: left;
+  font-family: Aeonik Pro TRIAL;
+  font-weight: 700;
+  line-height: normal;
+  font-stretch: normal;
+  text-decoration: none;
+}
+.frame-logo {
+  top: 32px;
+  left: 549px;
+  width: 371px;
+  height: 55px;
+  display: flex;
+  position: absolute;
+  align-items: flex-start;
+  flex-shrink: 1;
+}
+.frame-image3 {
+  top: 0px;
+  left: 206px;
+  width: 165px;
+  height: 55px;
+  position: absolute;
+}
+.frame-image4 {
+  top: 2px;
+  left: 0px;
+  width: 203px;
+  height: 50px;
+  position: absolute;
+}
