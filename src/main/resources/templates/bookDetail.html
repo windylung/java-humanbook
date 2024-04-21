@@ -1,11 +1,51 @@
 <!DOCTYPE html>
-<html xmlns="">
+<html xmlns:th="">
     <head>
+        <meta charset="UTF-8">
         <title>사람책 세부 페이지</title>
+        <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+        <!-- header.html 파일을 포함합니다 -->
+        <th:block th:include="fragments/header :: header"></th:block>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+            }
+            .content {
+                padding: 20px;
+            }
+            .background {
+                padding: 20px;
+                border-radius: 10px;
+                display: inline-block;
+            }
+            h1 {
+                background-color: #3674ff;
+                padding: 10px;
+                border-radius: 5px;
+            }
+            .book-info {
+                margin-top: 20px;
+            }
+            .book-image {
+                display: block;
+                margin-bottom: 20px;
+            }
+        </style>
     </head>
 
     <body>
-        <div th:text="${title}"></div>
-        <div th:text="${author}"></div>
+        <div class="content">
+            <div class="background">
+                <h1>책 세부 내용 페이지입니다.</h1>
+            </div>
+            <div class="background book-image">
+                <img src="public/external/asset42x1817-odfq-1500h.png">
+            </div>
+            <div class="background book-info">
+                <div><h2><b>책 제목:</b> <span th:text="${title}"></span></h2></div>
+                <div><b>작가:</b> <span th:text="${author}"></span></div>
+            </div>
+        </div>
     </body>
 </html>
