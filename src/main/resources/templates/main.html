@@ -72,15 +72,12 @@
             <span class="frame-text098"><span>Human BOOK</span></span>
             
 
-          
-
-
             <div class="book-list-row">
               <div th:each="book : ${books}" >
                 <div th:if= "${book.id < 3}" th:classappend="'frame-book' + (1 + ${book.id})">
 
                 
-                <a th:href="@{/book-detail/{id}(id=${book.id})}">
+                  <a th:href="@{/book-detail(id=${book.id})}">
                   <img
                     alt="첵 표지"
                     src="public/external/rectangle15813-hph.svg"
@@ -122,7 +119,7 @@
                 <div th:if= "${book.id >= 3 and book.id <= 5}" th:classappend="'frame-book' + (1 + ${book.id})">
 
                 
-                <a th:href="@{/book-detail/{id}(id=${book.id})}">
+                  <a th:href="@{/book-detail(id=${book.id})}">
                   <img
                     alt="첵 표지"
                     src="public/external/rectangle15813-hph.svg"
