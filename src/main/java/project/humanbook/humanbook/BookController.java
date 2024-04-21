@@ -4,8 +4,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class BookController {
@@ -26,8 +26,8 @@ public class BookController {
         return "redirect:/";
     }
 
-    @GetMapping("/book-detail/{id}")
-    public String getBookDetail(@PathVariable("id") Integer bookId, Model model) {
+    @GetMapping("/book-detail")
+    public String getBookDetail(@RequestParam("id") Integer bookId, Model model) {
         Book book = bookService.findById(bookId);
         model.addAttribute("title", book.getTitle());
         model.addAttribute("author", book.getAuthor());
