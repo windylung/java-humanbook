@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
   <head>
-    <title>사람책 작성 페이지</title>
+    <title>사람책 세부 페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 
     <link
       rel="stylesheet"
@@ -33,17 +33,17 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
   </head>
 <body>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="../style.css" />
   <div>
-    <link href="./write.css" rel="stylesheet" />
+    <link href="../bookDetail.css" rel="stylesheet">
     <div class="frame-container">
       <div class="frame-frame">
         <!-- 메인페이지 헤더 -->
-        <header th:replace="~{fragments/header :: header}"></header>
+        <header th:replace="~{fragments/header2 :: header}"></header>
         <div class="frame-maincontents">
           <p>사람책 세부 정보 페이지입니다.</p>
           <div class="background book-image">
-            <img src="public/external/asset42x1817-odfq-1500h.png">
+            <img src="../public/external/asset42x1817-odfq-1500h.png">
           </div>
           <div><h3><b>책 제목: </b><span th:text="${title}"></span></h3></div>
           <div><h3><b>작가 : </b><span th:text="${author}"></span></h3></div>
