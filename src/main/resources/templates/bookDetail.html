@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head>
-    <title>사람책 작성 페이지</title>
+    <title>사람책 세부 페이지</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta charset="utf-8" />
     <meta property="twitter:card" content="summary_large_image" />
@@ -41,14 +41,13 @@
         <!-- 메인페이지 헤더 -->
         <header th:replace="~{fragments/header :: header}"></header>
         <div class="frame-maincontents">
-          <p>사람책 작성 페이지입니다.</p>
+          <p>사람책 세부 페이지입니다.</p>
           <h1>Book Form</h1>
           <form action="/save" method="post" class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" id="title" name="title" class="form-control" /><br /><br />
-            <label for="author">Author:</label>
-            <input type="text" id="author" name="author" class="form-control" /><br /><br />
-            <input type="submit" value="Submit" class="btn btn-primary" />
+            <div class="frame-maincontents">
+              <div><h3><b>책 제목: </b><span th:text="${title}"></span></h3></div>
+              <div><h3><b>작가 : </b><span th:text="${author}"></span></h3></div>
+            </div>
           </form>
         </div>   
       </div>
