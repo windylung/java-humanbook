@@ -5,6 +5,7 @@
     min-height: 100vh;
     align-items: center;
     flex-direction: column;
+    overflow: auto;
   }
   .frame-frame {
     width: 100%;
@@ -15,6 +16,7 @@
     align-items: flex-start;
     flex-shrink: 0;
     background-color: rgba(255, 255, 255, 1);
+    overflow: auto;
   }
   /* .frame-banner {
     top: 115px;
@@ -37,6 +39,7 @@
     position: absolute;
     align-items: flex-start;
     flex-shrink: 1;
+    overflow: auto;
   }
   .frame-ellipse17 {
     top: 0px;
@@ -103,6 +106,7 @@
     position: absolute;
     align-items: flex-start;
     flex-shrink: 0;
+    overflow: auto;
   }
   
   .book-list-row {
