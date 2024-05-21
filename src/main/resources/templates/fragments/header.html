@@ -8,8 +8,12 @@
     <header>
         <div class="frame-frame38">
             <span class="frame-text100">
-                <span>
+                <span th:if="${nickname == null}">
+                    <a class="header-menu" href="/join">Sign In</a>
+                </span>
+                <span th:unless="${nickname == null}">
                     <a class="header-menu" href="/my-page">MY PAGE</a>
+                    <p style="font-size: 15px;">[[${nickname}]]님 환영합니다!</p>
                 </span>
             </span>
             <span class="frame-text102">
@@ -18,8 +22,11 @@
                 </span>
             </span>
             <span class="frame-text104">
-                <span>
+                <span th:if="${nickname == null}">
                     <a class="header-menu" href="/login">LOGIN</a>
+                </span>
+                <span th:unless="${nickname == null}">
+                    <a class="header-menu" href="/logout">LOGOUT</a>
                 </span>
             </span>
             <div class="frame-logo">
