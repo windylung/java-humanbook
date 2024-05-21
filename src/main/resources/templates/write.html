@@ -18,16 +18,6 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
-      data-tag="font"
-    />
-    <link
-      rel="stylesheet"
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -43,13 +33,25 @@
         <div class="frame-maincontents">
           <p>사람책 작성 페이지입니다.</p>
           <h1>Book Form</h1>
-          <form action="/save" method="post" class="form-group">
+          <form action="/save" method="post" class="form-group" enctype="multipart/form-data">
             <label for="title">Title:</label>
-            <input type="text" id="title" name="title" class="form-control" /><br /><br />
+            <input type="text" id="title" name="title" class="form-control" /><br />
+          
             <label for="author">Author:</label>
-            <input type="text" id="author" name="author" class="form-control" /><br /><br />
+            <input type="text" id="author" name="author" class="form-control" /><br />
+          
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" class="form-control" /><br />
+          
+            <label for="content">Content:</label>
+            <textarea id="content" name="content" class="form-control" rows="10"></textarea><br />
+          
+            <label for="coverImage">Cover Image:</label>
+            <input type="file" id="coverImage" name="coverImage" accept="image/*" class="form-control-file"><br />
+          
             <input type="submit" value="Submit" class="btn btn-primary" />
           </form>
+          
         </div>   
       </div>
     </div>

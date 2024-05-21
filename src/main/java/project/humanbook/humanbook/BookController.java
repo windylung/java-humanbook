@@ -19,7 +19,7 @@ public class BookController {
 
     @PostMapping("/save")
     public String postMethodName(@ModelAttribute Book book, Model model) {
-        bookService.addBook(book.getTitle(), book.getAuthor());
+        bookService.addBook(book.getTitle(), book.getAuthor(), book.getDescription(), book.getContent());
         // model.addAttribute("books", bookService.getAllBooks());
         // System.out.println(model);
         // return "main";
@@ -31,6 +31,8 @@ public class BookController {
         Book book = bookService.findById(bookId);
         model.addAttribute("title", book.getTitle());
         model.addAttribute("author", book.getAuthor());
+        model.addAttribute("description", book.getDescription());
+        model.addAttribute("content", book.getContent());
         return "bookDetail";
     }
 
