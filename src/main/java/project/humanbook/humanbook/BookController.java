@@ -33,7 +33,7 @@ public class BookController {
         return "main";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/logout") 
     public String logout(HttpServletRequest request, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
         HttpSession session = request.getSession(false);  // Session이 없으면 null return
         if(session != null) {
@@ -63,11 +63,33 @@ public class BookController {
     }
 
     @GetMapping("/book-detail")
-    public String getBookDetail(@RequestParam("id") Integer bookId, Model model) {
+    public String getBookDetail(@RequestParam("id") Integer bookId, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
         Book book = bookService.findById(bookId);
         model.addAttribute("title", book.getTitle());
         model.addAttribute("author", book.getAuthor());
+
+        User loginUser = userService.getLoginUserById(userId);
+
+        if(loginUser != null) {
+            model.addAttribute("nickname", loginUser.getNickname());
+        }
+        else {
+            // login session이 없는 경우
+        }
         return "bookDetail";
+    }
+
+    @GetMapping("/write")
+    public String getWrite(Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
+        User loginUser = userService.getLoginUserById(userId);
+
+        if(loginUser != null) {
+            model.addAttribute("nickname", loginUser.getNickname());
+        }
+        else {
+            // login session이 없는 경우
+        }
+        return "write";
     }
 
 }
