@@ -2,41 +2,349 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Header</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HumanBook</title>
+  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
+    <!-- 나눔고딕 폰트 -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <!-- <link rel="stylesheet" href="header.css" /> -->
+
+<style>
+  body {
+    color: #333;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.4;
+    font-family: 'Nanum Gothic', sans-serif;
+  }
+  
+  img {
+    display: block;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  .inner {
+    width: 1100px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  /* HEADER */
+  header {
+    background-color: #f6f5f0;
+    border-bottom: 1px solid #c8c8c8;
+  }
+  
+  header > .inner {
+    height: 120px;
+  }
+  
+  header .logo {
+    height: 75px;
+    position: absolute;
+    top: -30px;
+    bottom: 0;
+    margin: auto 0;
+    /* display: none;  */
+    /* 안보이게 하는 것 나중에 지워야함 */
+  }
+  
+  header .sub-menu {
+    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 0;
+  }
+  header .sub-menu ul.menu {
+    font-family: Arial, sans-serif;
+    display: flex;
+  }
+  header .sub-menu ul.menu li {
+    position: relative;
+  }
+  header .sub-menu ul.menu li::before {
+    content: "";
+    width: 1px;
+    height: 12px;
+    background-color: #ccc;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+  
+  header .sub-menu ul.menu li:first-child:before {
+    display: none;
+  }
+  
+  header .sub-menu ul.menu li a {
+    font-size: 14px;
+    padding: 11px 16px;
+    display: block;
+    color: #656565;
+  }
+  header .sub-menu ul.menu li a:hover {
+    color: #000;
+  }
+  header .sub-menu .search {
+    height: 34px;
+    position: relative;
+  }
+  header .sub-menu .search input {
+    width: 36px;
+    height: 34px;
+    padding: 4px 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 5px;
+    outline: none;
+    background-color: #fff;
+    color: #777;
+    font-size: 12px;
+    transition: width .4s;
+  }
+  
+  header .sub-menu .search input:focus {
+    width: 190px;
+    border-color: royalblue;
+  }
+  header .sub-menu .search .material-icons {
+    height: 24px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    right: 5px;
+    transition: .4s;
+  }
+  
+  header .sub-menu .search.focused .material-icons {
+    opacity: 0;
+  }
+  
+  header .main-menu {
+    position: absolute;
+    display: flex;
+    bottom: 0;
+    right: 0;
+    z-index: 1;
+  }
+  
+  /* header.main-menu .item {
+  
+  } */
+  
+  header .main-menu .item .item__name {
+    padding: 10px 20px 34px 20px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+  
+  header .main-menu .item:hover .item__name {
+    background-color: #2c2a29;
+    color: royalblue;
+    border-radius: 6px 6px 0 0;
+  }
+  
+  header .main-menu .item .item__contents {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    display: none;
+  }
+  
+  header .main-menu .item:hover .item__contents {
+    display: block;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu {
+    background-color: #2c2a29;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu > ul {
+    display: flex;
+    padding: 20px 0;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu > ul > li {
+    width: 220px;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu > ul > li h4 {
+    padding: 3px 0 12px 0;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  
+  header .main-menu .item .item__contents .contents__menu > ul > li ul li {
+    padding: 5px;
+    font-size: 14px;
+    color: #999;
+    cursor: pointer;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu > ul > li ul li:hover {
+    color: royalblue;
+  }
+  
+  header .main-menu .item .item__contents .contents__texture {
+    padding: 26px 0;
+    font-size: 14px;
+    background-color: #333;
+  }
+  
+  header .main-menu .item .item__contents .contents__menu > .inner {
+    width: 1000px;
+  }
+  
+  header .main-menu .item .item__contents .contents__texture > .inner {
+    width: 1000px;
+  }
+  
+  header .main-menu .item .item__contents .contents__texture h4 {
+    color: #999;
+    font-weight: 700;
+  }
+  
+  header .main-menu .item .item__contents .contents__texture p {
+    color: royalblue;
+    margin: 4px 0 14px;
+  }
+</style>
+
 </head>
+
 <body>
-    <header>
-        <div class="frame-frame38">
-            <span class="frame-text100">
-                <span>
-                    <a class="header-menu" href="/my-page">MY PAGE</a>
-                </span>
-            </span>
-            <span class="frame-text102">
-                <span>
-                    <a class="header-menu" href="/write">WRITE</a>
-                </span>
-            </span>
-            <span class="frame-text104">
-                <span>
-                    <a class="header-menu" href="/login">LOGIN</a>
-                </span>
-            </span>
-            <div class="frame-logo">
-                <a href="/">
-                    <img
-                        alt="image3884"
-                        src="/public/external/image3884-wir5-200h.png"
-                        class="frame-image3"
-                    />
-                    <img
-                        alt="image4885"
-                        src="/public/external/image4885-5yf4-200h.png"
-                        class="frame-image4"
-                    />
-                </a>
+
+      <!-- HEADER -->
+  <header>
+    <div class="inner">
+      <a href="/" class="logo">
+        <img src="/public/external/logo.png" alt="logo">
+      </a>
+
+    <div class="sub-menu">
+      <ul class="menu">
+        <li>
+            <a class="header-menu" href="/login">LOGIN</a>
+        </li>
+        <li>
+            <a class="header-menu" href="/my-page">MY PAGE</a>
+        </li>
+        <li>
+          <a class="header-menu" href="javascript:void(0)">Customer Service</a>
+        </li>
+      </ul>
+
+      <div class="search">
+        <input type="text">
+        <div class="material-icons">search</div>
+      </div>
+    </div>
+
+      <ul class="main-menu">
+        <li class="item">
+          <div class="item__name">BOOK</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>카테고리</h4>
+                  <ul>
+                    <li>여행</li>
+                    <li>교육</li>
+                    <li>건강</li>
+                    <li>직장</li>
+                    <li>연애</li>
+                    <li>가족</li>
+                  </ul>
+                </li>
+                <li>
+                  <h4>인기도별</h4>
+                  <ul>
+                    <li>투표</li>
+                    <li>일간</li>
+                    <li>주간</li>
+                    <li>연간</li>
+                  </ul>
+                </li>
+              </ul>
             </div>
-        </div>
-    </header>
+            <div class="contents__texture">
+              <div class="inner">
+                <h4>내가 보고싶은 인생 찾기</h4>
+                <p>사람책이 여러분에게 어울리는 인생을 찾아드립니다.</p>
+                <h4>여려분의 인생에 투표하기</h4>
+                <p>~</p>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="item__name">TODAY</div>
+          <div class="item__contents">
+            <div class="contents__menu">
+              <ul class="inner">
+                <li>
+                  <h4>오늘의</h4>
+                  <ul>
+                    <li>사람책</li>
+                    <li>사연</li>
+                    <li>질문</li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="contents__texture">
+              <div class="inner">TODAY</div>
+            </div>
+          </div>
+        </li>
+
+        <li class="item">
+          <div class="item__name">COMMUNITY</div>
+        </li>
+
+        <li class="item">
+          <div class="item__name">HUMANBOOK</div>
+        </li>
+
+        <li class="item">
+            <div class="item__name" href="/write">WRITE</div>
+          </li>
+
+      </ul>
+
+
+  </div>
+</header>
+
+<script>
+    const searchEl = document.querySelector('.search'); // document = html이라고 생각
+    const searchInputEl = searchEl.querySelector('input');
+
+    searchEl.addEventListener('click', function () {
+    searchInputEl.focus();
+    });
+
+    searchInputEl.addEventListener('focus', function () {
+    searchEl.classList.add('focused');
+    searchInputEl.setAttribute('placeholder', '통합검색'); // attribute html 속성
+    });
+
+    searchInputEl.addEventListener('blur', function () {
+    searchEl.classList.remove('focused');
+    searchInputEl.setAttribute('placeholder', ''); // attribute html 속성
+    });
+</script>
+
 </body>
 </html>

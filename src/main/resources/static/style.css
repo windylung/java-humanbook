@@ -108,4 +108,6 @@ html {
 }
 body {
   font-weight: 400;
+  min-width: auto;
+  min-height: auto;
 }
