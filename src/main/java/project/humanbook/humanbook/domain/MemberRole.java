@@ -1,5 +1,5 @@
 package project.humanbook.humanbook.domain;
 
-public enum UserRole {
-    USER, ADMIN;
+public enum MemberRole {
+    USER, ADMIN
 }

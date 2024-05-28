@@ -6,8 +6,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.SessionAttribute;
 
 import lombok.RequiredArgsConstructor;
-import project.humanbook.humanbook.domain.entity.User;
-import project.humanbook.humanbook.service.UserService;
 
 @Controller
 public class MainController {
