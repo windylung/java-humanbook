@@ -1,3 +1,4 @@
+.gitignore
 HELP.md
 target/
 !.mvn/wrapper/maven-wrapper.jar
@@ -33,4 +34,8 @@ build/
 .vscode/
 
 ### properties ###
-application.properties
+*.gitignore
+*.DS_Store
+**/src/test/*
+**/src/test/**
+
