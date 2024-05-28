@@ -31,15 +31,15 @@
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href="page.css" rel="stylesheet" />
   </head>
 <body>
-  <link rel="stylesheet" href="style.css" />
   <div>
-    <link href="write.css" rel="stylesheet" />
     <div class="frame-container">
       <div class="frame-frame">
         <!-- 메인페이지 헤더 -->
         <header th:replace="~{fragments/header :: header}"></header>
+<<<<<<< HEAD
         <div class="frame-maincontents">
           <p>사람책 작성 페이지입니다.</p>
           <h1>Book Form</h1>
@@ -51,8 +51,21 @@
             <input type="submit" value="Submit" class="btn btn-primary" />
           </form>
         </div>
+=======
+        </div>   
+>>>>>>> main
       </div>
     </div>
+  </div>
+  <div class="form-div">
+      <form action="/save" method="post" class="form-group std-form">
+        <h1>Book Form</h1>
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" class="form-control" /><br /><br />
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" class="form-control" /><br /><br />
+        <input type="submit" value="Submit" class="btn btn-primary" />
+      </form>
   </div>
 </body>
 </html>
