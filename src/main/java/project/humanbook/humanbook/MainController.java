@@ -2,6 +2,7 @@ package project.humanbook.humanbook;
 
 import org.springframework.stereotype.Controller;
 
+
 @Controller
 public class MainController {
 
