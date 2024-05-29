@@ -3,7 +3,6 @@ package project.humanbook.humanbook;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 
 @Entity
 @Table(name = "book")

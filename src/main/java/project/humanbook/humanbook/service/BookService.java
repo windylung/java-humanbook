@@ -1,7 +1,9 @@
-package project.humanbook.humanbook;
+package project.humanbook.humanbook.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import project.humanbook.humanbook.Book;
+import project.humanbook.humanbook.repository.BookRepository;
 
 import java.util.List;
 import java.util.Optional;
@@ -10,7 +12,6 @@ import java.util.Optional;
 public class BookService {
   private final BookRepository bookRepository;
 
-  @Autowired
   public BookService(BookRepository bookRepository){
     this.bookRepository = bookRepository;
   }
