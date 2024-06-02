@@ -6,16 +6,13 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.SessionAttribute;
+import org.springframework.web.bind.annotation.*;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 
+import java.util.List;
 import java.util.Optional;
 import project.humanbook.humanbook.domain.Member;
 import project.humanbook.humanbook.service.BookService;
@@ -23,6 +20,7 @@ import project.humanbook.humanbook.service.MemberService;
 
 @Controller
 @RequiredArgsConstructor
+
 public class BookController {
 
     private final BookService bookService;
@@ -49,7 +47,7 @@ public class BookController {
         return "main";
     }
 
-    @GetMapping("/logout") 
+    @GetMapping("/logout")
     public String logout(HttpServletRequest request, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
         HttpSession session = request.getSession(false);  // Session이 없으면 null return
         if(session != null) {
