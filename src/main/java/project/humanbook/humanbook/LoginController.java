@@ -1,5 +1,6 @@
 package project.humanbook.humanbook;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,6 +12,8 @@ import lombok.RequiredArgsConstructor;
 import project.humanbook.humanbook.domain.Member;
 import project.humanbook.humanbook.domain.dto.JoinRequest;
 import project.humanbook.humanbook.domain.dto.LoginRequest;
+import project.humanbook.humanbook.entity.Board;
+import project.humanbook.humanbook.service.BoardService;
 import project.humanbook.humanbook.service.MemberService;
 
 import org.springframework.ui.Model;
@@ -19,7 +22,11 @@ import org.springframework.validation.BindingResult;
 @Controller
 @RequiredArgsConstructor
 public class LoginController {
+    @Autowired
     private final MemberService memberService;
+
+    @Autowired
+    private final BoardService boardService;
 
     @GetMapping("/join")
     public String joinPage(Model model) {
@@ -43,7 +50,6 @@ public class LoginController {
         return "login";
     }
 
-    
     @GetMapping("/my-page")
     public String getMethodName(Authentication auth, Model model) {
         Member loginMember = memberService.getLoginMemberByLoginId(auth.getName());
@@ -52,5 +58,11 @@ public class LoginController {
         model.addAttribute("role", loginMember.getRole());
         return "myPage";
     }
-    
+
+    @PostMapping("/board/write")
+    public String postMethodName(Board board, Authentication auth) {
+        board.setOwner(auth.getName());
+        boardService.write(board);
+        return "redirect:/board";
+    }
 }
