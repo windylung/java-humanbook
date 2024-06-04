@@ -36,5 +36,4 @@ public class BoardService {
             throw new IllegalArgumentException("not authorized");
         }
     }
-
 }

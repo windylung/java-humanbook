@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Board {
-    @Id // primary key를 의미
+    @Id // primary key
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
