@@ -31,6 +31,7 @@
       href="https://unpkg.com/@teleporthq/teleport-custom-scripts/dist/style.css"
     />
   </head>
+
   <body>
     <link rel="stylesheet" href="./style.css" />
     <div>
@@ -39,6 +40,7 @@
         <div class="frame-frame">
           <!-- 메인페이지 헤더 -->
           <header th:replace="~{fragments/header :: header}"></header>
+
           <!-- 메인페이지 상단 배너 -->
           <div class="frame-banner">
             <div class="frame-frameeye">
@@ -79,7 +81,7 @@
                 
                   <a th:href="@{/book-detail(id=${book.id})}">
                   <img
-                    alt="첵 표지"
+                    alt="책 표지"
                     src="public/external/rectangle15813-hph.svg"
                     class="frame-rectangle15"
                   />
@@ -121,7 +123,7 @@
                 
                   <a th:href="@{/book-detail(id=${book.id})}">
                   <img
-                    alt="첵 표지"
+                    alt="책 표지"
                     src="public/external/rectangle15813-hph.svg"
                     class="frame-rectangle15"
                   />

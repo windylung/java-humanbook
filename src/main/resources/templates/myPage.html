@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="ko">
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>My Page</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -34,22 +33,63 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
     <link href="page.css" rel="stylesheet" />
 </head>
+
 <body>
 <div>
     <div class="frame-container">
         <div class="frame-frame">
             <!-- 메인페이지 헤더 -->
             <header th:replace="~{fragments/header :: header}"></header>
-            </div>
         </div>
     </div>
-    <h1><a>My Page</a></h1> <hr/>
-        <h2>유저 정보</h2>
-        <div>
-            <div th:text="|loginId : ${loginId}|"/>
-            <div th:text="|nickname : ${nickname}|"/>
-            <div th:text="|role : ${role}|"/>
+</div>
+
+<h1><a>My Page</a></h1>
+<h2>유저 정보</h2>
+<div>
+    <div th:text="|loginId : ${loginId}|"></div>
+    <div th:text="|nickname : ${nickname}|"></div>
+    <div th:text="|role : ${role}|"></div>
+</div>    
+
+<div class="book-list-row">
+  <div th:each="book : ${books}">
+    <div th:if="${book.id >= 3 and book.id <= 5}" th:classappend="'frame-book' + (1 + ${book.id})">
+      <a th:href="@{/book-detail(id=${book.id})}">
+        <img
+          alt="책 표지"
+          src="/public/external/rectangle15813-hph.svg"
+          class="frame-rectangle15"
+        />
+        <span class="frame-text006">
+          <!-- 첫 번째 줄은 book.title에서 공백 위치를 찾아 첫 부분을 표시합니다 -->
+          <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringBefore(book.title, ' ') : book.title}"></span>
+          <br/>
+          <!-- 두 번째 줄은 제목에서 첫 공백 이후의 부분을 표시합니다. 공백이 없으면 출력하지 않습니다. -->
+          <span th:text="${#strings.contains(book.title, ' ') ? #strings.substringAfter(book.title, ' ') : ''}"></span>
+        </span>
+        <span class="frame-text010">
+          <!-- 하단 텍스트는 고정된 값으로 표시 -->
+          <span
+            th:text="${book.author}"
+          ></span>
+          <br />
+          <!-- 두 번째 줄은 book.title에서 첫 공백 이후의 부분을 표시합니다 -->
+          <!-- <span
+            th:text="${#strings.substringAfter(book.author, ' ')}"
+          ></span> -->
+        </span>
+        <div class="frame-frame15">
+          <img
+            alt="Asset42x1817"
+            src="/public/external/asset42x1817-odfq-1500h.png"
+            class="book-cover"
+          />
         </div>
+      </a>
     </div>
+  </div>
+</div>
+
 </body>
 </html>
