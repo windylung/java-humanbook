@@ -32,12 +32,16 @@ public class MemberService {
 
     public Member login(LoginRequest loginRequest) {
         Member findMember = memberRepository.findByLoginId(loginRequest.getLoginId());
-
         if(findMember == null){
             return null;
         }
 
-        if (!findMember.getPassword().equals(loginRequest.getPassword())) {
+//        if (!findMember.getPassword().equals(loginRequest.getPassword())) {
+//            return null;
+//        }
+
+        // 비밀번호 비교
+        if (!bCryptPasswordEncoder.matches(loginRequest.getPassword(), findMember.getPassword())) {
             return null;
         }
 
