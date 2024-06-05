@@ -1,5 +1,6 @@
 package project.humanbook.humanbook.domain;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,6 +10,8 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class Member {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
