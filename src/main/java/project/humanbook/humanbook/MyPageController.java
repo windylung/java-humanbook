@@ -12,21 +12,21 @@ public class MyPageController {
 
     @GetMapping("/my-page")
     public String myPage(Model model) {
-        // 가상의 데이터로 모델을 채웁니다
+        // 더미
         List<Book> books = getBooks(); // 이 메서드는 책 리스트를 반환해야 합니다
         model.addAttribute("books", books);
-        model.addAttribute("loginId", "user123");
-        model.addAttribute("nickname", "User Nickname");
-        model.addAttribute("role", "ROLE_USER");
+        model.addAttribute("loginId", "1234");
+        model.addAttribute("nickname", "2345");
+        model.addAttribute("role", "USER");
         return "myPage";
     }
 
     private List<Book> getBooks() {
-        // 실제 데이터베이스나 다른 소스에서 책 데이터를 가져오는 로직을 구현해야 합니다
+        // 더미
         return Arrays.asList(
-            new Book(3, "Book Title 3", "Author 3"),
-            new Book(4, "Book Title 4", "Author 4"),
-            new Book(5, "Book Title 5", "Author 5")
+            new Book(3, "Book Title 111", "Author 123"),
+            new Book(4, "Book Title 222", "Author 456"),
+            new Book(5, "Book Title 333", "Author 789")
         );
     }
 

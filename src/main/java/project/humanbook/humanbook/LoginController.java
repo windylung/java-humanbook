@@ -53,13 +53,7 @@ public class LoginController {
         return "login";
     }
 
-    @PostMapping("/board/write")
-    public String postMethodName(Board board, Authentication auth) {
-        board.setOwner(auth.getName());
-        boardService.write(board);
-        return "redirect:/board";
-    }
-
+    /* 
     @GetMapping("/my-page")
     public String getMethodName(Authentication auth, Model model) {
         Member loginMember = memberService.getLoginMemberByLoginId(auth.getName());
@@ -68,6 +62,12 @@ public class LoginController {
         model.addAttribute("role", loginMember.getRole());
         return "myPage";
     }
+    */
 
-    
+    @PostMapping("/board/write")
+    public String postMethodName(Board board, Authentication auth) {
+        board.setOwner(auth.getName());
+        boardService.write(board);
+        return "redirect:/board";
+    }
 }
