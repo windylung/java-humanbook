@@ -30,7 +30,7 @@ public class FlutterBookController {
     }
 
     @GetMapping("/test")
-    public String getTest() {return "test"};
+    public String getTest() {return "test";}
 
 
     @PostMapping("/login/member")
