@@ -19,7 +19,7 @@ public class BookService {
     return bookRepository.save(book);
   }
 
-  public List<Book> getAllBooks() {
+  public List<Book> findAll() {
     return bookRepository.findAll();
   }
 

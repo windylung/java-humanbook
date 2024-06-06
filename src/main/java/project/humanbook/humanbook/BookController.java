@@ -54,7 +54,7 @@ public class BookController {
             session.invalidate();
         }
 
-        model.addAttribute("books", bookService.getAllBooks());
+        model.addAttribute("books", bookService.findAll());
 
 //        User loginUser = userService.getLoginUserById(userId);
         // User loginUser = userService.getLoginUserById(userId);

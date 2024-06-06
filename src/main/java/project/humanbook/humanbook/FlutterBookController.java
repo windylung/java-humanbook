@@ -26,7 +26,7 @@ public class FlutterBookController {
     // response = http.get("http://humanbook.kr/book/list)
     @GetMapping("/api/book/list")
     public List<Book> getAllBooks() {
-        return bookService.getAllBooks();
+        return bookService.findAll();
     }
 
     @GetMapping("/api/test")
@@ -43,10 +43,11 @@ public class FlutterBookController {
         }
     }
 
-    @GetMapping("/search/flutter")
+    @GetMapping("/api/search")
     public List<Book> searchBooks(@RequestParam(value = "keyword", required = false) String keyword,
                               @RequestParam(value = "type", required = false) String type) {
-        List<Book> books = null;
+
+        List<Book> books = bookService.findAll();
         if (keyword != null && type != null) {
             if ("author".equalsIgnoreCase(type)) {
                 books = searchService.searchBooksByAuthor(keyword);
