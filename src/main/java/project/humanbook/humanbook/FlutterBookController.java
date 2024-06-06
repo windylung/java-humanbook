@@ -24,16 +24,16 @@ public class FlutterBookController {
     private final MemberService memberService;
 
     // response = http.get("http://humanbook.kr/book/list)
-    @GetMapping("/book/list")
+    @GetMapping("/api/book/list")
     public List<Book> getAllBooks() {
         return bookService.getAllBooks();
     }
 
-    @GetMapping("/test")
+    @GetMapping("/api/test")
     public String getTest() {return "test";}
 
 
-    @PostMapping("/login/member")
+    @PostMapping("/api/login/member")
     public ResponseEntity<?> loginPage(@RequestBody LoginRequest request) {
         Member member = memberService.login(request);
         if (member == null) {
