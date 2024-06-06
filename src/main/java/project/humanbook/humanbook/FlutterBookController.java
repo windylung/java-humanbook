@@ -15,7 +15,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-//@CrossOrigin(originPatterns = "http://localhost:*")
+@CrossOrigin(originPatterns = "*")
 public class FlutterBookController {
 
     @Autowired
