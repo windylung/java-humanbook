@@ -26,26 +26,26 @@ public class BookController {
     private final BookService bookService;
     private final MemberService memberService;
 
-    @GetMapping("/")
-    public String home(Model model) {
-        model.addAttribute("books", bookService.getAllBooks());
-
-        String loginId = SecurityContextHolder.getContext().getAuthentication().getName();
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-
-        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
-        Iterator<? extends GrantedAuthority> iter = authorities.iterator();
-        GrantedAuthority auth = iter.next();
-        String role = auth.getAuthority();
-
-        Member loginMember = memberService.getLoginMemberByLoginId(loginId);
-
-        if (loginMember != null) {
-            model.addAttribute("nickname", loginMember.getName());
-        }
-
-        return "main"; //html
-    }
+//    @GetMapping("/")
+//    public String home(Model model) {
+//        model.addAttribute("books", bookService.getAllBooks());
+//
+//        String loginId = SecurityContextHolder.getContext().getAuthentication().getName();
+//        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+//
+//        Collection<? extends GrantedAuthority> authorities = authentication.getAuthorities();
+//        Iterator<? extends GrantedAuthority> iter = authorities.iterator();
+//        GrantedAuthority auth = iter.next();
+//        String role = auth.getAuthority();
+//
+//        Member loginMember = memberService.getLoginMemberByLoginId(loginId);
+//
+//        if (loginMember != null) {
+//            model.addAttribute("nickname", loginMember.getName());
+//        }
+//
+//        return "main"; //html
+//    }
 
     @GetMapping("/logout")
     public String logout(HttpServletRequest request, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
