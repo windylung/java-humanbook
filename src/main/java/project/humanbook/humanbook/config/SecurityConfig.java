@@ -32,7 +32,7 @@ http
 
 http
         .formLogin((auth) -> auth.loginPage("/login")
-                .loginProcessingUrl("/loginProc")
+                .loginProcessingUrl("/api/loginProc")
                 // 프론트단에서 설정해 둔 경로로 로그인 정보를 넘기면 스프링 시큐리티가 받아서 자동으로 로그인 진행
                 .failureUrl("/login")
                 .defaultSuccessUrl("/")
