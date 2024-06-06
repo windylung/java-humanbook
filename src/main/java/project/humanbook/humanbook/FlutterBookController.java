@@ -29,6 +29,9 @@ public class FlutterBookController {
         return bookService.getAllBooks();
     }
 
+    @GetMapping("/test")
+    public String getTest() {return "test"};
+
 
     @PostMapping("/login/member")
     public ResponseEntity<?> loginPage(@RequestBody LoginRequest request) {
