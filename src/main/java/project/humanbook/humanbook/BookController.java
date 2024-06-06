@@ -44,7 +44,7 @@ public class BookController {
             model.addAttribute("nickname", loginMember.getName());
         }
 
-        return "main";
+        return "main"; //html
     }
 
     @GetMapping("/logout")
