@@ -6,53 +6,46 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.CorsConfigurationSource;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import project.humanbook.humanbook.domain.MemberRole;
 
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
-    // 시큐리티 필터 메서드
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-        .authorizeHttpRequests((auth) -> auth
-                .requestMatchers("/", "/login", "/join").permitAll()
+            .authorizeHttpRequests(auth -> auth
+                .requestMatchers("/", "/api/login", "/api/join", "/api/book/list", "/api/test").permitAll()
                 .requestMatchers("/admin").hasRole(MemberRole.ADMIN.name())
                 .requestMatchers("/info").hasAnyRole(MemberRole.ADMIN.name(), MemberRole.USER.name())
-                .anyRequest().permitAll()
-        );
+                .anyRequest().authenticated()
+            )
+            .logout(logout -> logout.logoutUrl("/api/logout"))
+            .csrf(csrf -> csrf.disable())
+            .cors(cors -> cors.configurationSource(corsConfigurationSource()));
 
-http
-        .logout((auth) -> auth
-                .logoutUrl("/logout")
-        );
-
-http
-        .formLogin((auth) -> auth.loginPage("/login")
-                .loginProcessingUrl("/api/loginProc")
-                // 프론트단에서 설정해 둔 경로로 로그인 정보를 넘기면 스프링 시큐리티가 받아서 자동으로 로그인 진행
-                .failureUrl("/login")
-                .defaultSuccessUrl("/")
-                .usernameParameter("loginId")
-                .passwordParameter("password")
-
-                .permitAll()
-        );
-
-
-http
-        .csrf((auth) -> auth.disable());
-        
         return http.build();
     }
 
-    // BCrypt password encoder를 리턴하는 메서드
     @Bean
-    public BCryptPasswordEncoder bCryptPasswordEncoder(){
-
+    public BCryptPasswordEncoder bCryptPasswordEncoder() {
         return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public CorsConfigurationSource corsConfigurationSource() {
+        CorsConfiguration configuration = new CorsConfiguration();
+        configuration.addAllowedOrigin("*");
+        configuration.addAllowedMethod("*");
+        configuration.addAllowedHeader("*");
+        configuration.setAllowCredentials(true);
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        source.registerCorsConfiguration("/**", configuration);
+        return source;
     }
 }
