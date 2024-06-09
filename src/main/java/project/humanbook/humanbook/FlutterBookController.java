@@ -1,5 +1,6 @@
 package project.humanbook.humanbook;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -90,7 +91,9 @@ public class FlutterBookController {
     public List<BoardListViewResponse> returnBoard() {
         List<BoardListViewResponse> boards = boardService.findAll().stream()
         .map(BoardListViewResponse::new)
-        .toList();  
+        .toList();
+
+        System.out.println("boards = " + boards);
         // view 에서 사용하는 방법은 boardList.html에서 확인 할 수 있습니다.    
 
         return boards;
@@ -122,10 +125,13 @@ public class FlutterBookController {
     }
     
     @PostMapping("/api/board/write")
-    public ResponseEntity<?> writeBoard(Board board, Authentication auth) {
+    public ResponseEntity<?> writeBoard(BoardRequest boardRequest, Authentication auth) {
         if(auth == null) { // null 이면 로그인이 안되어있는 상태
             return ResponseEntity.status(401).body("error: Invalid login credentials");
         }
+        Board board = new Board();
+        board.setTitle(boardRequest.getTitle());
+        board.setContent(boardRequest.getContent());
         Member member = memberService.getLoginMemberByLoginId(auth.getName());
         board.setOwner(auth.getName());
         boardService.write(board);
@@ -140,4 +146,10 @@ public class FlutterBookController {
                 .build();
     }
     /* Comment관련 Controller는 API 폴더에 CommentApiController.java에 존재합니다. */
+}
+
+@Data
+class BoardRequest {
+    String title;
+    String content;
 }
