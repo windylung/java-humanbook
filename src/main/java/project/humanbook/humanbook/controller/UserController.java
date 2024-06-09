@@ -28,4 +28,10 @@ public class UserController {
         String loginId = userDetails.getUsername();
         return memberService.findByLoginId(loginId);
     }
+
+    @GetMapping("/mypage2")
+    public String getUserDetail2(){
+        return SecurityContextHolder.getContext().getAuthentication().getName();
+    }
 }
+
