@@ -8,6 +8,7 @@ import project.humanbook.humanbook.service.CustomUserDetailsService;
 import project.humanbook.humanbook.service.ManuscriptService;
 import project.humanbook.humanbook.service.MemberService;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -21,10 +22,10 @@ public class ManuscriptController {
     @Autowired
     private MemberService memberService;
 
-    @PostMapping
-    public Manuscript createManuscript(@RequestBody ManuscriptRequest request) {
-        return manuscriptService.saveManuscript(request.getUserId(), request.getStep(), request.getTitle(), request.getContent());
-    }
+//    @PostMapping
+//    public Manuscript createManuscript(@RequestBody ManuscriptRequest request) {
+//        return manuscriptService.saveManuscript(request.getUserId(), request.getStep(), request.getTitle(), request.getContent());
+//    }
 
     @GetMapping("/user")
     public List<Manuscript> getManuscriptsByUserId(Authentication authentication) {
@@ -32,24 +33,31 @@ public class ManuscriptController {
         System.out.println(id);
         return manuscriptService.getManuscriptsByUserId(id);
     }
+
+    @GetMapping("/user/{step}")
+    public Manuscript getManuscriptsByUserIdAndStep(Authentication authentication, @PathVariable int step) {
+        Long id = memberService.findByLoginId(authentication.getName()).getId();
+        System.out.println(id);
+        return manuscriptService.getManuscriptByUserIdAndStep(id, step).orElse(null);
+    }
+
+    @PutMapping
+    public Manuscript updateManuscript(Authentication authentication, @RequestBody ManuscriptRequest request) {
+        Long id = memberService.findByLoginId(authentication.getName()).getId();
+        LocalDateTime localDateTime = LocalDateTime.now();
+        return manuscriptService.updateManuscript(id, request.getStep(), request.getTitle(), request.getContent(), localDateTime);
+    }
+
 }
 
 
 class ManuscriptRequest {
-    private Long userId;
+
     private Integer step;
     private String title;
     private String content;
 
     // Getters and Setters
-    public Long getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Long userId) {
-        this.userId = userId;
-    }
-
     public Integer getStep() {
         return step;
     }
