@@ -9,18 +9,18 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-
+import org.springframework.session.jdbc.config.annotation.web.http.EnableJdbcHttpSession;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 import project.humanbook.humanbook.domain.MemberRole;
 
 import jakarta.servlet.http.HttpServletResponse;
-import org.springframework.beans.factory.annotation.Autowired;
 
 @Configuration
 @EnableWebSecurity
+@EnableJdbcHttpSession
 public class SecurityConfig {
-
-    @Autowired
-    private RequestLoggingFilter requestLoggingFilter;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -31,13 +31,13 @@ public class SecurityConfig {
                         .requestMatchers("/info").hasAnyRole(MemberRole.ADMIN.name(), MemberRole.USER.name())
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(requestLoggingFilter, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin((auth) -> auth
                         .loginProcessingUrl("/api/loginProc")
-                        .successHandler(authenticationSuccessHandler()) // 로그인 성공 시 핸들러 설정
-                        .failureHandler(authenticationFailureHandler()) // 로그인 실패 시 핸들러 설정
-                        .usernameParameter("loginId") // usernameParameter 설정
-                        .passwordParameter("password") // passwordParameter 설정
+                        .successHandler(authenticationSuccessHandler())
+                        .failureHandler(authenticationFailureHandler())
+                        .usernameParameter("loginId")
+                        .passwordParameter("password")
                         .permitAll()
                 )
                 .logout((auth) -> auth
@@ -69,5 +69,18 @@ public class SecurityConfig {
             response.setContentType("application/json");
             response.getWriter().write("{\"error\": \"Login failed\"}");
         };
+    }
+
+    @Bean
+    public CorsFilter corsFilter() {
+        UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+        CorsConfiguration config = new CorsConfiguration();
+        config.setAllowCredentials(true);
+        config.addAllowedOriginPattern("http://localhost:*");
+        config.addAllowedOrigin("http://humanbook.kr");
+        config.addAllowedHeader("*");
+        config.addAllowedMethod("*");
+        source.registerCorsConfiguration("/**", config);
+        return new CorsFilter(source);
     }
 }
