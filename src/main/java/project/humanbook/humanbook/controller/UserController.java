@@ -20,25 +20,25 @@ public class UserController {
         this.memberService = memberService;
     }
 
-//    @GetMapping("/mypage")
-//    public Member getUserDetails(@AuthenticationPrincipal UserDetails userDetails) {
+//    @GetMapping("/mypage3")
+//    public Long getUserDetails(@AuthenticationPrincipal UserDetails userDetails) {
 //        // UserDetails에서 loginId를 가져와서 회원 정보를 조회
 ////        System.out.println("userDetails = " + userDetails);
 //
 //        System.out.println("userDetails = " + SecurityContextHolder.getContext().getAuthentication().getName());
 //        String loginId = userDetails.getUsername();
-//        return memberService.findByLoginId(loginId);
+//        return memberService.findByLoginId(loginId).getId();
 //    }
-
-    @GetMapping("/mypage2")
-    public String getUserDetail2(){
-        return SecurityContextHolder.getContext().getAuthentication().getName();
-    }
+//
+//    @GetMapping("/mypage2")
+//    public String getUserDetail2(){
+//        return SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+//    }
 
 
     @GetMapping("/mypage")
-    public String getUserDetail3(Authentication authentication) {
-        return authentication.getName();
+    public Member getUserDetail3(Authentication authentication) {
+        return memberService.findByLoginId(authentication.getName());
     }
 
 }
