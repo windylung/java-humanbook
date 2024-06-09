@@ -86,7 +86,7 @@ public class FlutterBookController {
     }
     
 
-    @GetMapping("/api/getBoardList") // 게시판의 글 목록를 가져오는 API
+    @GetMapping("/api/board/getBoardList") // 게시판의 글 목록를 가져오는 API
     public List<BoardListViewResponse> returnBoard() {
         List<BoardListViewResponse> boards = boardService.findAll().stream()
         .map(BoardListViewResponse::new)
@@ -96,7 +96,7 @@ public class FlutterBookController {
         return boards;
     }
 
-    @GetMapping("/api/getBoard/{id}") // 게시판의 해당 id를 가진 글을 가져오는 API (Comment는 따로 가져와야함)
+    @GetMapping("/api/board/getBoard/{id}") // 게시판의 해당 id를 가진 글을 가져오는 API (Comment는 따로 가져와야함)
     public BoardViewResponse getBoard(@PathVariable int id){
         Board board = boardService.findById(id);
         // model.addAttribute("board",new BoardViewResponse(board)); // 화면에서 사용할 모델에 데이터를 저장한다.
@@ -110,7 +110,7 @@ public class FlutterBookController {
         return new BoardViewResponse(board);
     }
 
-    @GetMapping("/api/getComment/{id}") // 게시판의 해당 id를 가진 글의 댓글을 가져오는 API
+    @GetMapping("/api/board/getComment/{id}") // 게시판의 해당 id를 가진 글의 댓글을 가져오는 API
     public List<CommentResponse> getComment(@PathVariable int id) {
         List<CommentResponse> comments = commentService.findAll(id).stream()
                 .map(CommentResponse::new).toList();
@@ -140,4 +140,4 @@ public class FlutterBookController {
                 .build();
     }
     /* Comment관련 Controller는 API 폴더에 CommentApiController.java에 존재합니다. */
-}
+}add .
