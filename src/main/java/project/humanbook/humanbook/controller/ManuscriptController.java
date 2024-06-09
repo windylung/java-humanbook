@@ -1,15 +1,12 @@
 package project.humanbook.humanbook.controller;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
-import project.humanbook.humanbook.domain.Member;
 import project.humanbook.humanbook.entity.Manuscript;
-import project.humanbook.humanbook.service.CustomUserDetails;
 import project.humanbook.humanbook.service.CustomUserDetailsService;
 import project.humanbook.humanbook.service.ManuscriptService;
+import project.humanbook.humanbook.service.MemberService;
 
 import java.util.List;
 
@@ -21,6 +18,8 @@ public class ManuscriptController {
     private CustomUserDetailsService userDetailsService;
     @Autowired
     private ManuscriptService manuscriptService;
+    @Autowired
+    private MemberService memberService;
 
     @PostMapping
     public Manuscript createManuscript(@RequestBody ManuscriptRequest request) {
@@ -28,9 +27,9 @@ public class ManuscriptController {
     }
 
     @GetMapping("/user")
-    public String getManuscriptsByUserId(@AuthenticationPrincipal CustomUserDetails userDetails) {
-        System.out.println("userDetails.toString() = " + userDetails.toString());
-        return "test";
+    public List<Manuscript> getManuscriptsByUserId(Authentication authentication) {
+        Long id = memberService.findByLoginId(authentication.getName()).getId();
+        return manuscriptService.getManuscriptsByUserId(id);
     }
 }
 
