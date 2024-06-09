@@ -6,10 +6,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
+import jakarta.validation.Valid;
 import project.humanbook.humanbook.domain.Member;
 import project.humanbook.humanbook.domain.dto.BoardListViewResponse;
 import project.humanbook.humanbook.domain.dto.BoardViewResponse;
 import project.humanbook.humanbook.domain.dto.CommentResponse;
+import project.humanbook.humanbook.domain.dto.JoinRequest;
 import project.humanbook.humanbook.domain.dto.LoginRequest;
 import project.humanbook.humanbook.entity.Board;
 import project.humanbook.humanbook.service.BoardService;
@@ -19,6 +22,7 @@ import project.humanbook.humanbook.service.MemberService;
 import project.humanbook.humanbook.service.SearchService;
 
 import java.util.List;
+
 
 
 @RequiredArgsConstructor
@@ -68,6 +72,19 @@ public class FlutterBookController {
         }
         return books;
     }
+
+    @GetMapping("/api/join") // /join에 접근할때 JoinRequset 객체 요청
+    public JoinRequest joinRequest() {
+        return new JoinRequest();
+    }
+
+    @PostMapping("/api/join") // 실제 회원가입 요청을 /api/join에 POST 요청
+    public ResponseEntity<?> handleJoinRequest(@Valid @ModelAttribute JoinRequest joinRequest) {
+        memberService.securityJoin(joinRequest);
+
+        return ResponseEntity.ok("200");
+    }
+    
 
     @GetMapping("/api/getBoardList") // 게시판의 글 목록를 가져오는 API
     public List<BoardListViewResponse> returnBoard() {
