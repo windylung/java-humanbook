@@ -39,16 +39,16 @@ public class CommentApiController {
     }
 
     //댓글 업데이트
-    // @PutMapping({"/articles/{articleId}/comments/{id}"})
-    // public ResponseEntity<Long> update(@PathVariable long articleId, @PathVariable Long id, @RequestBody UpdateCommentRequest dto) {
-    //     commentService.update(articleId, id, dto);
+    // @PutMapping({"/articles/{boardId}/comments/{id}"})
+    // public ResponseEntity<Long> update(@PathVariable long boardId, @PathVariable Long id, @RequestBody UpdateCommentRequest dto) {
+    //     commentService.update(boardId, id, dto);
     //     return ResponseEntity.ok(id);
     // }
 
     //댓글 삭제
-    @DeleteMapping("/board/{articleId}/comments/{id}")
-    public ResponseEntity<Integer> delete(@PathVariable int articleId, @PathVariable int id) {
-        commentService.delete(articleId, id);
+    @DeleteMapping("/board/{boardId}/comments/{id}")
+    public ResponseEntity<Integer> delete(@PathVariable int boardId, @PathVariable int id) {
+        commentService.delete(boardId, id);
         return ResponseEntity.ok(id);
     }
 }
