@@ -1,6 +1,7 @@
 package project.humanbook.humanbook.controller;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +22,9 @@ public class UserController {
     @GetMapping("/mypage")
     public Member getUserDetails(@AuthenticationPrincipal UserDetails userDetails) {
         // UserDetails에서 loginId를 가져와서 회원 정보를 조회
+//        System.out.println("userDetails = " + userDetails);
+
+        System.out.println("userDetails = " + SecurityContextHolder.getContext().getAuthentication().getName());
         String loginId = userDetails.getUsername();
         return memberService.findByLoginId(loginId);
     }
