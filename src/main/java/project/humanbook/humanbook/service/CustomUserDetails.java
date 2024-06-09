@@ -1,11 +1,13 @@
 package project.humanbook.humanbook.service;
 
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import project.humanbook.humanbook.domain.Member;
 
 import java.util.Collection;
 
+@ToString
 public class CustomUserDetails implements UserDetails {
     private final Member member;
 
