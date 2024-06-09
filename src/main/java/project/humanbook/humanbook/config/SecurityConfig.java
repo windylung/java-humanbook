@@ -28,13 +28,14 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests((auth) -> auth
-                        .requestMatchers("/", "/login", "/join", "/api/login", "/api/book/list").permitAll()
+                        .requestMatchers("/", "/login", "/join", "/api/login", "/api/book/list", "/api/board/**").permitAll()
                         .requestMatchers("/admin").hasRole(MemberRole.ADMIN.name())
                         .requestMatchers("/info").hasAnyRole(MemberRole.ADMIN.name(), MemberRole.USER.name())
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin((auth) -> auth
+                        .loginPage("/login")
                         .loginProcessingUrl("/api/loginProc")
                         .successHandler(authenticationSuccessHandler())
                         .failureHandler(authenticationFailureHandler())
