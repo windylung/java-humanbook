@@ -29,12 +29,6 @@ import jakarta.servlet.http.HttpServletResponse;
 @EnableJdbcHttpSession
 public class SecurityConfig {
 
-    private final CustomUserDetailsService customUserDetailsService;
-
-    public SecurityConfig(CustomUserDetailsService customUserDetailsService) {
-        this.customUserDetailsService = customUserDetailsService;
-    }
-
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
