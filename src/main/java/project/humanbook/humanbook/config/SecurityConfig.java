@@ -44,7 +44,7 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .logout((auth) -> auth
-                        .logoutUrl("/logout")
+                        .logoutUrl("/api/logout")
                 )
                 .csrf((auth) -> auth.disable());
 
