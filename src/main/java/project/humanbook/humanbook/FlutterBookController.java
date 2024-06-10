@@ -83,7 +83,7 @@ public class FlutterBookController {
     }
 
 
-    @PostMapping("/join") // 실제 회원가입 요청을 /api/join에 POST 요청
+    @PostMapping("/api/join") // 실제 회원가입 요청을 /api/join에 POST 요청
     public ResponseEntity<?> handleJoinRequest(@Valid @RequestBody JoinRequest joinRequest) {
         memberService.securityJoin(joinRequest);
 
