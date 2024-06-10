@@ -82,14 +82,13 @@ public class FlutterBookController {
         return new JoinRequest();
     }
 
-    @PostMapping("/api/join") // 실제 회원가입 요청을 /api/join에 POST 요청
-    public ResponseEntity<?> handleJoinRequest(JoinRequest joinRequest) {
+
+    @PostMapping("/join") // 실제 회원가입 요청을 /api/join에 POST 요청
+    public ResponseEntity<?> handleJoinRequest(@Valid @RequestBody JoinRequest joinRequest) {
         memberService.securityJoin(joinRequest);
 
         return ResponseEntity.ok("200");
     }
-
-
     @GetMapping("/api/board/getBoardList") // 게시판의 글 목록를 가져오는 API
     public List<BoardListViewResponse> returnBoard() {
         List<BoardListViewResponse> boards = boardService.findAll().stream()
