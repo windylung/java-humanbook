@@ -14,7 +14,10 @@ import lombok.RequiredArgsConstructor;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.springframework.web.multipart.MultipartFile;
 import project.humanbook.humanbook.domain.Member;
+import project.humanbook.humanbook.entity.Book;
 import project.humanbook.humanbook.service.BookService;
 import project.humanbook.humanbook.service.MemberService;
 
@@ -68,10 +71,19 @@ public class BookController {
         return "redirect:/";
     }
 
-    @PostMapping("/save")
-    public String saveBook(@ModelAttribute Book book) {
-        bookService.saveBook(book);
-        return "redirect:/";
+    @PostMapping
+    public Book createBook(
+            @RequestParam("title") String title,
+            @RequestParam("author") String author,
+            @RequestParam("epub") MultipartFile epubFile,
+            @RequestParam(value = "isLiked", defaultValue = "false") boolean isLiked) {
+
+        try {
+            byte[] epubContent = epubFile.getBytes();
+            return bookService.saveBook(title, author, epubContent, isLiked);
+        } catch (Exception e) {
+            throw new RuntimeException("Failed to save book", e);
+        }
     }
 
     @GetMapping("/book-detail")

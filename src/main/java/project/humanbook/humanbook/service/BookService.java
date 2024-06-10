@@ -2,7 +2,7 @@ package project.humanbook.humanbook.service;
 
 import org.springframework.stereotype.Service;
 
-import project.humanbook.humanbook.Book;
+import project.humanbook.humanbook.entity.Book;
 import project.humanbook.humanbook.repository.BookRepository;
 
 import java.util.List;
@@ -15,7 +15,12 @@ public class BookService {
   public BookService(BookRepository bookRepository){
     this.bookRepository = bookRepository;
   }
-  public Book saveBook(Book book) {
+  public Book saveBook(String title, String author, byte[] epubContent, boolean isLiked) {
+    Book book = new Book();
+    book.setTitle(title);
+    book.setAuthor(author);
+    book.setEpubContent(epubContent);
+    book.setLiked(isLiked);
     return bookRepository.save(book);
   }
 

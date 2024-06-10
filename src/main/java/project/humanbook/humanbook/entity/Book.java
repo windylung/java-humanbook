@@ -1,4 +1,4 @@
-package project.humanbook.humanbook;
+package project.humanbook.humanbook.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +18,13 @@ public class Book {
 
   @Column(name = "author")
   private String author;
+
+  @Lob
+  @Column(name = "epubContent", nullable = false)
+  private byte[] epubContent;
+
+  @Column(name = "isLiked")
+  private boolean isLiked;
+
+  // Cover image 생략
 }

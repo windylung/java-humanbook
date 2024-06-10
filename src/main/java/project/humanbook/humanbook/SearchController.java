@@ -3,7 +3,7 @@ package project.humanbook.humanbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import project.humanbook.humanbook.service.SearchService;
-// import project.humanbook.humanbook.Book;
+ import project.humanbook.humanbook.entity.Book;
 
 import java.util.List;
 

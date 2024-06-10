@@ -1,6 +1,8 @@
 package project.humanbook.humanbook;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import project.humanbook.humanbook.domain.dto.CommentResponse;
 import project.humanbook.humanbook.domain.dto.JoinRequest;
 import project.humanbook.humanbook.domain.dto.LoginRequest;
 import project.humanbook.humanbook.entity.Board;
+import project.humanbook.humanbook.entity.Book;
 import project.humanbook.humanbook.service.BoardService;
 import project.humanbook.humanbook.service.BookService;
 import project.humanbook.humanbook.service.CommentService;
@@ -123,9 +126,10 @@ public class FlutterBookController {
             return null; // view에서 null 확인 필수 !!
         }
     }
-    
+
+
     @PostMapping("/api/board/write")
-    public ResponseEntity<?> writeBoard(BoardRequest boardRequest, Authentication auth) {
+    public ResponseEntity<?> writeBoard(@RequestBody BoardRequest boardRequest, Authentication auth) {
         if(auth == null) { // null 이면 로그인이 안되어있는 상태
             return ResponseEntity.status(401).body("error: Invalid login credentials");
         }
@@ -148,8 +152,3 @@ public class FlutterBookController {
     /* Comment관련 Controller는 API 폴더에 CommentApiController.java에 존재합니다. */
 }
 
-@Data
-class BoardRequest {
-    String title;
-    String content;
-}
