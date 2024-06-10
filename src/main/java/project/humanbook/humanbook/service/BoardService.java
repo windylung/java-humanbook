@@ -22,18 +22,19 @@ public class BoardService {
     }
     public Board findById(int id){
         return boardRepository.findById(id)
-                .orElseThrow(()->new IllegalArgumentException("not found:"+id));
+                .orElseThrow(() -> new IllegalArgumentException("not found:" + id));
     }
     public void delete(int id){
-        Board board=boardRepository.findById(id)
-                        .orElseThrow(()->new IllegalArgumentException("not found: "+ id));
+        Board board = boardRepository.findById(id)
+                        .orElseThrow(() -> new IllegalArgumentException("not found: " + id));
         authorizeBoardOwner(board);
         boardRepository.delete(board);
     }
     private static void authorizeBoardOwner(Board board) {
         String memberName = SecurityContextHolder.getContext().getAuthentication().getName();
-        if(!board.getOwner().equals(memberName)){
+        if (!board.getOwner().equals(memberName)){
             throw new IllegalArgumentException("not authorized");
         }
     }
 }
+
