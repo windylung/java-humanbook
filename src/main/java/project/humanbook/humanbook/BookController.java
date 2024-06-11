@@ -1,6 +1,10 @@
 package project.humanbook.humanbook;
+
 import java.util.Collection;
 import java.util.Iterator;
+
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,25 +33,16 @@ public class BookController {
     private final BookService bookService;
     private final MemberService memberService;
 
-    @GetMapping("/logout")
-    public String logout(HttpServletRequest request, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
-        HttpSession session = request.getSession(false);  // Session이 없으면 null return
-        if(session != null) {
+    @PostMapping("/logout")
+    public ResponseEntity<String> logout(HttpServletRequest request) {
+        HttpSession session = request.getSession(false); // Session이 없으면 null return
+        if (session != null) {
             session.invalidate();
+            return ResponseEntity.ok("Logout successful"); // 로그아웃 성공 시 200 상태 코드와 함께 메시지 반환
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Session does not exist"); // 세션이 없는 경우 401 상태
+                                                                                                  // 코드와 함께 메시지 반환
         }
-
-        model.addAttribute("books", bookService.findAll());
-
-//        User loginUser = userService.getLoginUserById(userId);
-        // User loginUser = userService.getLoginUserById(userId);
-
-//        if(loginUser != null) {
-//            model.addAttribute("nickname", loginUser.getNickname());
-//        }
-        // if(loginUser != null) {
-        //     model.addAttribute("nickname", loginUser.getNickname());
-        // }
-        return "redirect:/";
     }
 
     @PostMapping
@@ -78,59 +73,62 @@ public class BookController {
             return "redirect:/";
         }
     }
-//
-//    public String getBookDetail(@RequestParam("id") Integer bookId, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
-//        Book book = bookService.findById(bookId);
-//        model.addAttribute("title", book.getTitle());
-//        model.addAttribute("author", book.getAuthor());
-//
-//        User loginUser = userService.getLoginUserById(userId);
-//
-//        if(loginUser != null) {
-//            model.addAttribute("nickname", loginUser.getNickname());
-//        }
-//        else {
-//            // login session이 없는 경우
-//        }
-//        return "bookDetail";
-//    }
+    //
+    // public String getBookDetail(@RequestParam("id") Integer bookId, Model model,
+    // @SessionAttribute(name = "userId", required = false) Long userId) {
+    // Book book = bookService.findById(bookId);
+    // model.addAttribute("title", book.getTitle());
+    // model.addAttribute("author", book.getAuthor());
+    //
+    // User loginUser = userService.getLoginUserById(userId);
+    //
+    // if(loginUser != null) {
+    // model.addAttribute("nickname", loginUser.getNickname());
+    // }
+    // else {
+    // // login session이 없는 경우
+    // }
+    // return "bookDetail";
+    // }
 
-//
-//    public String getBookDetail(@RequestParam("id") Integer bookId, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
-//        Book book = bookService.findById(bookId);
-//        model.addAttribute("title", book.getTitle());
-//        model.addAttribute("author", book.getAuthor());
-//
-//        User loginUser = userService.getLoginUserById(userId);
-//
-//        if(loginUser != null) {
-//            model.addAttribute("nickname", loginUser.getNickname());
-//        }
-//        else {
-//            // login session이 없는 경우
-//        }
-//        return "bookDetail";
-//    }
-    // public String getBookDetail(@RequestParam("id") Integer bookId, Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
-    //     Optional<Book> bookOptional = bookService.findById(bookId);
+    //
+    // public String getBookDetail(@RequestParam("id") Integer bookId, Model model,
+    // @SessionAttribute(name = "userId", required = false) Long userId) {
+    // Book book = bookService.findById(bookId);
+    // model.addAttribute("title", book.getTitle());
+    // model.addAttribute("author", book.getAuthor());
+    //
+    // User loginUser = userService.getLoginUserById(userId);
+    //
+    // if(loginUser != null) {
+    // model.addAttribute("nickname", loginUser.getNickname());
+    // }
+    // else {
+    // // login session이 없는 경우
+    // }
+    // return "bookDetail";
+    // }
+    // public String getBookDetail(@RequestParam("id") Integer bookId, Model model,
+    // @SessionAttribute(name = "userId", required = false) Long userId) {
+    // Optional<Book> bookOptional = bookService.findById(bookId);
 
-    //     model.addAttribute("title", book.getTitle());
-    //     model.addAttribute("author", book.getAuthor());
+    // model.addAttribute("title", book.getTitle());
+    // model.addAttribute("author", book.getAuthor());
 
-    //     return "bookDetail";
+    // return "bookDetail";
     // }
 
     @GetMapping("/write")
     public String getWrite(Model model, @SessionAttribute(name = "userId", required = false) Long userId) {
 
-//        User loginUser = userService.getLoginUserById(userId);
-//
-//        if(loginUser != null) {
-//            model.addAttribute("nickname", loginUser.getNickname());
-//        }
-//        else {
-//            // login session이 없는 경우
-//        }
+        // User loginUser = userService.getLoginUserById(userId);
+        //
+        // if(loginUser != null) {
+        // model.addAttribute("nickname", loginUser.getNickname());
+        // }
+        // else {
+        // // login session이 없는 경우
+        // }
 
         return "write";
     }
