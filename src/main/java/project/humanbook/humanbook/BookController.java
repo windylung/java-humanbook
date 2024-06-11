@@ -25,25 +25,24 @@ import project.humanbook.humanbook.entity.Book;
 import project.humanbook.humanbook.service.BookService;
 import project.humanbook.humanbook.service.MemberService;
 
-@Controller
 @RequiredArgsConstructor
-
+@RestController
 public class BookController {
 
     private final BookService bookService;
     private final MemberService memberService;
 
-    @PostMapping("/api/logout")
-    public ResponseEntity<String> logout(HttpServletRequest request) {
-        HttpSession session = request.getSession(false); // Session이 없으면 null return
-        if (session != null) {
-            session.invalidate();
-            return ResponseEntity.ok("Logout successful"); // 로그아웃 성공 시 200 상태 코드와 함께 메시지 반환
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Session does not exist"); // 세션이 없는 경우 401 상태
-                                                                                                  // 코드와 함께 메시지 반환
-        }
-    }
+//    @PostMapping("/api/logout")
+//    public ResponseEntity<String> logout(HttpServletRequest request) {
+//        HttpSession session = request.getSession(false); // Session이 없으면 null return
+//        if (session != null) {
+//            session.invalidate();
+//            return ResponseEntity.ok("Logout successful"); // 로그아웃 성공 시 200 상태 코드와 함께 메시지 반환
+//        } else {
+//            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Session does not exist"); // 세션이 없는 경우 401 상태
+//                                                                                                  // 코드와 함께 메시지 반환
+//        }
+//    }
 
     @PostMapping
     public Book createBook(

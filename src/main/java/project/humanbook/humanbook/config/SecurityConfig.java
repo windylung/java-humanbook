@@ -1,5 +1,6 @@
 package project.humanbook.humanbook.config;
 
+import jakarta.servlet.http.HttpSession;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -45,6 +46,14 @@ public class SecurityConfig {
                 )
                 .logout((auth) -> auth
                         .logoutUrl("/api/logout")
+                        .addLogoutHandler((request, response, authentication) -> {
+                            HttpSession session = request.getSession();
+                            if (session != null) {
+                                session.invalidate();
+                            }
+                        })
+                        .logoutSuccessHandler((request, response, authentication) -> response.sendRedirect("/"))
+                        .deleteCookies("remember-me")
                 )
                 .csrf((auth) -> auth.disable());
 
