@@ -1,10 +1,13 @@
 package project.humanbook.humanbook;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.asciidoctor.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.FileSystemResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.ui.Model;
@@ -12,21 +15,25 @@ import org.springframework.web.bind.annotation.*;
 
 import jakarta.validation.Valid;
 import project.humanbook.humanbook.domain.Member;
-import project.humanbook.humanbook.domain.dto.BoardListViewResponse;
-import project.humanbook.humanbook.domain.dto.BoardViewResponse;
-import project.humanbook.humanbook.domain.dto.CommentResponse;
-import project.humanbook.humanbook.domain.dto.JoinRequest;
-import project.humanbook.humanbook.domain.dto.LoginRequest;
+import project.humanbook.humanbook.domain.dto.*;
 import project.humanbook.humanbook.entity.Board;
 import project.humanbook.humanbook.entity.Book;
-import project.humanbook.humanbook.service.BoardService;
-import project.humanbook.humanbook.service.BookService;
-import project.humanbook.humanbook.service.CommentService;
-import project.humanbook.humanbook.service.MemberService;
-import project.humanbook.humanbook.service.SearchService;
+import project.humanbook.humanbook.entity.Manuscript;
+import project.humanbook.humanbook.service.*;
 
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.List;
-
+import java.util.Optional;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 
 
 @RequiredArgsConstructor
@@ -40,14 +47,111 @@ public class FlutterBookController {
     private final MemberService memberService;
     private final BoardService boardService;
     private final CommentService commentService;
+    private final ManuscriptService manuscriptService;
 
 
     // response = http.get("http://humanbook.kr/book/list)
     @GetMapping("/api/book/list")
-    public List<Book> getAllBooks() {
-        return bookService.findAll();
+    public List<BookDto> getAllBooks() {
+        return bookService.findAllBooks();
     }
 
+    @GetMapping("/api/book/{id}/content")
+    public ResponseEntity<Resource> getBookContent(@PathVariable Integer id) {
+        Optional<Book> optionalBook = bookService.findById(id);
+        if (!optionalBook.isPresent()) {
+            return ResponseEntity.notFound().build();
+        }
+
+        Book book = optionalBook.get();
+        System.out.println("book = " + book);
+        byte[] epubContent = book.getEpubContent();
+        if (epubContent == null) {
+            epubContent = new byte[0]; // epubContent가 null인 경우 빈 배열로 초기화
+        }
+
+        ByteArrayResource resource = new ByteArrayResource(epubContent);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"book.epub\"")
+                .body(resource);
+    }
+
+
+    // 업데이트(기존 책이 있는 경우)
+    // cover Image
+    // title 받아오기 @RequestBody
+    // isLiked 어떻게 할지
+
+//    @GetMapping("/api/book/{id}/file")
+//    public ResponseEntity<Resource> getBookFile(@PathVariable Integer id) {
+//        Optional<Book> optionalBook = bookService.findById(id);
+//        if (!optionalBook.isPresent()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//
+//        Book book = optionalBook.get();
+//        File file = new File(book.getFilePath());
+//        if (!file.exists()) {
+//            return ResponseEntity.notFound().build();
+//        }
+//
+//        Resource resource = (Resource) new FileSystemResource(file);
+//        return ResponseEntity.ok()
+//                .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getName() + "\"")
+//                .body(resource);
+//    }
+
+
+    @GetMapping("/api/book/save")
+    public void saveBooks(Authentication authentication) throws IOException {
+        Long userId = memberService.findByLoginId(authentication.getName()).getId();
+        List<Manuscript> manuscripts = manuscriptService.getManuscriptsByUserId(userId);
+        Book book = new Book();
+        book.setAuthor(authentication.getName());
+
+        if (manuscripts.isEmpty()) {
+            throw new IllegalArgumentException("No manuscripts found for the user.");
+        }
+
+        // AsciiDoc 콘텐츠 생성
+        StringBuilder adocContent = new StringBuilder();
+        adocContent.append("= Sample Book\n")
+                .append(authentication.getName()).append("\n")
+                .append(":doctype: book\n")
+                .append(":toc: left\n")
+                .append(":toclevels: 3\n\n"); // TOC 설정
+
+        for (Manuscript manuscript : manuscripts) {
+            adocContent.append("== ").append(manuscript.getTitle()).append("\n")
+                    .append(manuscript.getContent()).append("\n\n");
+        }
+
+        // 임시 AsciiDoc 파일 생성
+        File tempAdocFile = new File("temp.adoc");
+        Files.write(tempAdocFile.toPath(), adocContent.toString().getBytes());
+
+        // Asciidoctor 인스턴스 생성
+        Asciidoctor asciidoctor = Asciidoctor.Factory.create();
+
+        // AsciiDoc 파일을 EPUB으로 변환
+        asciidoctor.convertFile(tempAdocFile, Options.builder()
+                .safe(SafeMode.SAFE)
+                .backend("epub3")
+                .toFile(new File("output.epub")) // 결과 파일을 지정
+                .build());
+
+        // EPUB 파일을 데이터베이스에 저장
+        byte[] epubContent = Files.readAllBytes(Paths.get("output.epub"));
+        book.setTitle("Sample Book");
+        book.setEpubContent(epubContent);
+
+        bookService.save(book);
+
+        // 임시 파일 삭제
+        tempAdocFile.delete();
+        new File("output.epub").delete();
+    }
     @GetMapping("/api/test")
     public String getTest() {return "test";}
 

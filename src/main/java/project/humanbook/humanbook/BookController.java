@@ -44,20 +44,20 @@ public class BookController {
 //        }
 //    }
 
-    @PostMapping
-    public Book createBook(
-            @RequestParam("title") String title,
-            @RequestParam("author") String author,
-            @RequestParam("epub") MultipartFile epubFile,
-            @RequestParam(value = "isLiked", defaultValue = "false") boolean isLiked) {
-
-        try {
-            byte[] epubContent = epubFile.getBytes();
-            return bookService.saveBook(title, author, epubContent, isLiked);
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to save book", e);
-        }
-    }
+//    @PostMapping
+//    public Book createBook(
+//            @RequestParam("title") String title,
+//            @RequestParam("author") String author,
+//            @RequestParam("epub") MultipartFile epubFile,
+//            @RequestParam(value = "isLiked", defaultValue = "false") boolean isLiked) {
+//
+//        try {
+//            byte[] epubContent = epubFile.getBytes();
+//            return bookService.saveBook(title, author, epubContent, isLiked);
+//        } catch (Exception e) {
+//            throw new RuntimeException("Failed to save book", e);
+//        }
+//    }
 
     @GetMapping("/book-detail")
     public String getBookDetail(@RequestParam("id") Integer bookId, Model model) {

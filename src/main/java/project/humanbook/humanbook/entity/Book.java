@@ -9,22 +9,24 @@ import jakarta.persistence.*;
 @Data
 @NoArgsConstructor
 public class Book {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Integer id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
-  @Column(name = "title")
-  private String title;
+    @Column(name = "title")
+    private String title;
 
-  @Column(name = "author")
-  private String author;
+    @Column(name = "author")
+    private String author;
 
-  @Lob
-  @Column(name = "epubContent", nullable = false)
-  private byte[] epubContent;
+    @Lob
+    @Column(name = "epub_content", nullable = false)
+    private byte[] epubContent = new byte[0];;
 
-  @Column(name = "isLiked")
-  private boolean isLiked;
 
-  // Cover image 생략
+    @Column(name = "isLiked")
+    private boolean isLiked;
+
+
+    // Cover image 생략
 }
