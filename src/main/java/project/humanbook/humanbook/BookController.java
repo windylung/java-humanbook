@@ -33,7 +33,7 @@ public class BookController {
     private final BookService bookService;
     private final MemberService memberService;
 
-    @PostMapping("/logout")
+    @PostMapping("/api/logout")
     public ResponseEntity<String> logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false); // Session이 없으면 null return
         if (session != null) {
