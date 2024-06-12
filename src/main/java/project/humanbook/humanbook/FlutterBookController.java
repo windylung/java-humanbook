@@ -103,7 +103,7 @@ public class FlutterBookController {
 //    }
 
 
-    @GetMapping("/api/book/save")
+    @PostMapping("/api/book/save")
     public void saveBooks(Authentication authentication) throws IOException {
         Long userId = memberService.findByLoginId(authentication.getName()).getId();
         List<Manuscript> manuscripts = manuscriptService.getManuscriptsByUserId(userId);

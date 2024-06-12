@@ -34,7 +34,7 @@ public class SecurityConfig {
                         .requestMatchers("/info").hasAnyRole(MemberRole.ADMIN.name(), MemberRole.USER.name())
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
+//                .addFilterBefore(corsFilter(), UsernamePasswordAuthenticationFilter.class)
                 .formLogin((auth) -> auth
                         .loginPage("/login")
                         .loginProcessingUrl("/api/loginProc")
