@@ -1,7 +1,7 @@
 package project.humanbook.humanbook.service;
 
 import org.springframework.stereotype.Service;
-import project.humanbook.humanbook.Book;
+import project.humanbook.humanbook.entity.Book;
 import project.humanbook.humanbook.repository.SearchRepository;
 
 import java.util.List;
