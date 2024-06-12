@@ -166,20 +166,20 @@ public class FlutterBookController {
         }
     }
 
-    @GetMapping("/api/search")
-    public List<Book> searchBooks(@RequestParam(value = "keyword", required = false) String keyword,
-                              @RequestParam(value = "type", required = false) String type) {
+    // @GetMapping("/api/search")
+    // public List<Book> searchBooks(@RequestParam(value = "keyword", required = false) String keyword,
+    //                           @RequestParam(value = "type", required = false) String type) {
 
-        List<Book> books = bookService.findAll();
-        if (keyword != null && type != null) {
-            if ("author".equalsIgnoreCase(type)) {
-                books = searchService.searchBooksByAuthor(keyword);
-            } else {
-                books = searchService.searchBooksByTitle(keyword);
-            }
-        }
-        return books;
-    }
+    //     List<Book> books = bookService.findAll();
+    //     if (keyword != null && type != null) {
+    //         if ("author".equalsIgnoreCase(type)) {
+    //             books = searchService.searchBooksByAuthor(keyword);
+    //         } else {
+    //             books = searchService.searchBooksByTitle(keyword);
+    //         }
+    //     }
+    //     return books;
+    // }
 
     @GetMapping("/api/join") // /join에 접근할때 JoinRequset 객체 요청
     public JoinRequest joinRequest() {
